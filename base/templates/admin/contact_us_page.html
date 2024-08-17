@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyMe - Reach Out</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body class="alt">
+<nav class="navbar">
+    {% if user_field and user_field.curr_user %}
+        <a href="/signout">Sign Out</a>
+        <a href="/home/{{ user_field.curr_user }}">Home</a>
+        <a href="/upload_image/{{ user_field.curr_user }}">Let's Create!</a>
+        <a href="/contact_us_page/{{ user_field.curr_user }}" class="active">Reach Out</a>
+        <a href="/profile/{{ user_field.curr_user }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% else %}
+        <a href="/signin">Sign In</a>
+        <a href="/">Home</a>
+        <a href="/upload_image">Let's Create!</a>
+        <a href="/contact_us_page" class="active">Reach Out</a>
+        <a href="/profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% endif %}
+</nav>
+
+<div id="upper-contact-container">
+    <div class="contact_container">
+        <h1 class="alt">Contact Us</h1>
+        <div id="successMessage" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>Thank you for reaching out, <span id="userName"></span>.<br>
+                We have received your message and will get back to
+                you shortly.
+            </p>
+            <div class="buttons">
+                <button>
+                    <a href="/" class="try-again-btn">Go to Home</a>
+                </button>
+                <button>
+                    <a href="/upload_image" class="try-again-btn">Transform Another Image</a>
+                </button>
+
+            </div>
+        </div>
+        <form id="contactForm" action="/submit_feedback/{{ user_field.curr_user_id }}" method="get">
+            <div class="contact-section">
+                <p>If you have any questions, feedback, or need assistance, feel free to contact us. We're here to help!
+                </p>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Message:</label>
+                    <textarea id="feedback" name="feedback" rows="2" required></textarea>
+                </div>
+                {% with message = get_flashed_messages() %}
+                    {% if message %}
+                        <p id="flash_msg">{{ message[0] }}</p>
+                    {% endif %}
+                {% endwith %}<br>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 ArtifyMe. All rights reserved.</p>
+</footer>
+
+<script>
+    $(document).ready(function () {
+        $('#contactForm').on('submit', function (event) {
+            event.preventDefault();
+            $.ajax({
+                url: '/submit_feedback/{{ user_field.curr_user_id }}',
+                type: 'GET',
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.status === 'success') {
+                        $('#contactForm').hide();
+                        $('#successMessage').show();
+                        $('#userName').text(response.name);
+                    } else {
+                        $('#flash_msg').text(response.message);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('An error occurred while submitting the form: ' + textStatus + ' ' + errorThrown);
+                }
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

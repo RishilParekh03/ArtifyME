@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyMe - Create</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+</head>
+
+<body class="alt">
+<nav class="navbar">
+    {% if user_field and user_field.curr_user %}
+        <a href="/signout">Sign Out</a>
+        <a href="/home/{{ user_field.curr_user }}">Home</a>
+        <a href="/upload_image/{{ user_field.curr_user }}" class="active">Let's Create!</a>
+        <a href="/contact_us_page/{{ user_field.curr_user }}">Reach Out</a>
+        <a href="/profile/{{ user_field.curr_user }}">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% else %}
+        <a href="/signin">Sign In</a>
+        <a href="/">Home</a>
+        <a href="/upload_image" class="active">Let's Create!</a>
+        <a href="/contact_us_page">Reach Out</a>
+        <a href="/profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% endif %}
+</nav>
+
+<form action="/converting_image" method="post" enctype="multipart/form-data">
+
+    <div class="container">
+        <h1 class="alt">Transform Your Photos into Artistic Portraits!</h1>
+        <div class="upload-section">
+            <label for="imageUpload" class="upload-label">Upload Image</label>
+            <input type="file" id="imageUpload" name="inputImage" accept="image/*">
+        </div>
+        <div class="image-preview" id="imagePreview">
+            <p>No image uploaded yet</p>
+        </div>
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                <p style="color: red; font-weight: bold">{{ message[0] }}</p>
+            {% endif %}
+        {% endwith %}<br>
+        <p id="flash_msg" style="color: red; font-weight: bold"></p>
+        <div class="buttons" id="actionButtons">
+            <button id="convertButton" disabled>Transform</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <div class="buttons" id="resultButtons" style="display: none;">
+            <button>
+                <a id="downloadButton" href="#" download>Download Image</a>
+            </button>
+            <button id="resetButton2">Start Over</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ArtifyMe. All rights reserved.</p>
+    </footer>
+    <script src="../../static/js/script.js"></script>
+</form>
+</body>
+
+</html>

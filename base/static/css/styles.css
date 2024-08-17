@@ -1,0 +1,474 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #ff6a00, #ee0979);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 560;
+    font-size: medium;
+    padding: 10px 20px;
+    width: 100px;
+    height: 25px;
+}
+
+.navbar a:hover,
+.navbar .active {
+    font-size: large;
+    font-weight: 600;
+    background-color: white;
+    border-radius: 5px;
+    color: black;
+    transition: background-color 0.5s;
+}
+
+footer {
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: large;
+}
+
+footer p {
+    font-size: 0.8em;
+    margin: 0;
+}
+
+/* Styles Specific to index.html */
+header {
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+main {
+    padding: 20px;
+}
+
+.intro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.intro-box {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    max-width: 300px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.intro-box img {
+    border-radius: 10px;
+    max-width: 100%;
+}
+
+.intro-box p {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.get-started {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    max-width: 600px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.get-started h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.get-started p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.try-btn {
+    background-color: #ff6a00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+.try-btn a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+#try-now-btn {
+    margin: 0;
+}
+
+.try-btn:hover {
+    background-color: #ee0979;
+}
+
+/* Styles Specific to profile_page.html */
+#signin-signup {
+    margin: 130px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.signin-signup-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signin-signup-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.signin-signup-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.signin-signup-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.signin-signup-buttons {
+    display: flex;
+    place-content: center;
+}
+
+.signIn-section {
+    margin-bottom: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.signIn-section p, .signUp-section p {
+    text-align: center;
+    margin: 0;
+}
+
+/* Styles Specific to upload_page.html */
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 160px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section {
+    margin: 20px 0;
+}
+
+.upload-label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+#imageUpload {
+    margin: 10px 0;
+}
+
+.image-preview {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+
+.buttons {
+    margin: 10px 0;
+}
+
+#downloadButton,
+.try-again-btn {
+    text-decoration: none;
+    color: white;
+}
+
+button {
+    background-color: #ff6a00;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ee0979;
+}
+
+#resultButtons {
+    display: flex;
+    justify-content: center;
+}
+
+/* Styles Specific to error_page.html */
+.error-section {
+    margin: 50px 0;
+    padding: 20px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-section p {
+    margin: 10px 0;
+}
+
+.error-details {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Styles Specific to contact_page.html */
+#upper-contact-container {
+    margin: 90px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.contact_container {
+    text-align: center;
+    padding: 20px;
+    height: 450px;
+    background-color: white;
+    border-radius: 20px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact_container button {
+    margin: 13px;
+}
+
+.contact-section, .signUp-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.contact-section {
+    margin: 0;
+    padding: 10px 20px;
+}
+
+.contact-section p {
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#successMessage {
+    margin-top: 50px;
+    padding: 60px;
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    border-radius: 5px;
+}
+
+#successMessage h2 {
+    margin-top: 0;
+    color: #4caf50;
+}
+
+#flash_msg {
+    color: red;
+    margin: 10px 0 3px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Styles Specific to profile_page.html*/
+.profile-info {
+    margin: 67px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-box {
+    max-width: 700px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-pic {
+    height: 300px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    width: 700px;
+}
+
+.profile-pic img {
+    border-radius: 50%;
+    border: 2px solid gray;
+    max-width: 300px;
+    height: 300px;
+}
+
+.profile-box h2 {
+    font-size: x-large;
+    font-weight: 550;
+    text-align: center;
+}
+
+.profile-box p {
+    font-size: medium;
+    font-weight: lighter;
+    color: gray;
+    text-align: left;
+}
+
+.edit-btn {
+    display: flex;
+    background-color: #ff6a00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 550;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 30px;
+}
+
+.edit-btn:hover {
+    background-color: #ee0979;
+}
+
+.profile-gallery {
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.profile-gallery h2 {
+    font-size: xx-large;
+    padding: 10px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin: 0;
+    background-color: white;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+    background-color: white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.gallery-item {
+    flex: 25%;
+    text-align: center;
+    padding: 7px;
+}
+
+.gallery-item img {
+    vertical-align: middle;
+    margin-top: 8px;
+    max-width: 480px;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .gallery-grid {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery-item {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
