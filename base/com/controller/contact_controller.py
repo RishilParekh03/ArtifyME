@@ -33,10 +33,9 @@ def user_contact_us_page(username):
 @app.route("/submit_feedback/<user_id>", methods=['get'])
 def submit_feedback(user_id):
     try:
-        user_id = int(user_id)
         user_field = get_sess()
 
-        if user_field['curr_user_id'] == user_id:
+        if user_field['curr_user_id'] == int(user_id):
             name = request.args.get('name')
             email = request.args.get('email')
             feedback = request.args.get('feedback')
@@ -44,7 +43,7 @@ def submit_feedback(user_id):
             insert_inquiry_vo = ContactVO()
             insert_inquiry_dao = ContactDAO()
 
-            insert_inquiry_vo.inquiry_user_id = user_id
+            insert_inquiry_vo.inquiry_user_id = user_field['curr_user_id']
             insert_inquiry_vo.inquiry_user_email = email
             insert_inquiry_vo.feedback = feedback
 

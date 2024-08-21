@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyMe - Sign Up</title>
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar">
+    {% if user_field and user_field.username %}
+        <a href="/signout">Sign Out</a>
+        <a href="/home/{{ user_field.username }}">Home</a>
+        <a href="/upload_image/{{ user_field.username }}">Let's Create!</a>
+        <a href="/contact_us_page/{{ user_field.username }}">Reach Out</a>
+        <a href="/profile/{{ user_field.username }}" class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% else %}
+        <a href="/signin">Sign In</a>
+        <a href="/">Home</a>
+        <a href="/upload_image">Let's Create!</a>
+        <a href="/contact_us_page">Reach Out</a>
+        <a href="/profile" class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
+                 class="bi-bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+        </a>
+    {% endif %}
+</nav>
+
+<div id="signin-signup">
+    <div class="signin-signup-container">
+        <h1>Transform Your Photos into Artistic Portraits!</h1>
+        <form action="/" method="get">
+            <div class="signUp-section" id="signUp">
+                <div class="form-group">
+                    <label for="signUp-name">Name</label>
+                    <input type="text" id="signUp-name" name="signUp-name" value="{{ user_field.name }}">
+                </div>
+                <div class="form-group">
+                    <label for="signUp-email">Email</label>
+                    <input type="email" id="signUp-email" name="signUp-email" value="{{ user_field.username }}">
+                </div>
+                <div class="form-group">
+                    <label for="signUp-password">Password</label>
+                    <input type="password" id="signUp-password" name="signUp-password">
+                </div>
+            </div>
+            <div class="signin-signup-buttons">
+                <button type="submit" id="signUpButton">Edit</button>
+                <button><a href="/profile_page">Cancel</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 ArtifyMe. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>
