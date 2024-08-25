@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtifyMe - Profile</title>
     <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 
@@ -19,9 +20,9 @@
         <a href="/profile/{{ user_field.username }}" class="active">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
                  class="bi-bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
                 <path fill-rule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
             </svg>
         </a>
     {% else %}
@@ -32,31 +33,18 @@
         <a href="/profile" class="active">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
                  class="bi-bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
                 <path fill-rule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
             </svg>
         </a>
     {% endif %}
 </nav>
-{#<div>#}
-{#    <svg xmlns="http://www.w3.org/2000/svg" width="560" height="560" fill="currentColor" class="bi bi-emoji-frown"#}
-{#         viewBox="0 0 16 16">#}
-{#        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>#}
-{#        <path d="M4.285 12.433a.5.5 0 0 0 .683-.183A3.5 3.5 0 0 1 8 10.5c1.295 0 2.426.703 3.032 1.75a.5.5 0 0 0 .866-.5A4.5 4.5 0 0 0 8 9.5a4.5 4.5 0 0 0-3.898 2.25.5.5 0 0 0 .183.683M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m4 0c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5"/>#}
-{#    </svg>#}
-{#</div>#}
 
 <div class="profile-info">
     <div class="profile-box">
-        <div class="profile-pic">
-            {% if user_field.username %}
-                <img alt="Profile Picture" src="../../static/images/img3.jpg">
-            {% else %}
-                <img alt="Profile Picture" src="../../static/images/image-not-available.jpg">
-            {% endif %}
-        </div>
-        <h2>Welcome {{ user_field.name }}!</h2>
+        <h1>Profile</h1>
+        <h3>Welcome {{ user_field.name }}!</h3>
         <p>Email: {{ user_field.username }}</p>
         <p>Member since: {{ user_field.reg_date }}</p>
         {% with message = get_flashed_messages() %}
@@ -65,6 +53,7 @@
             {% endif %}
         {% endwith %}
         <a href="/edit_profile/{{ user_field.user_id }}" class="edit-btn">Edit Profile</a>
+        <a href="/delete_profile/{{ user_field.user_id }}" class="edit-btn">Delete Profile</a>
     </div>
 </div>
 

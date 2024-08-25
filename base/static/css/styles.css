@@ -136,14 +136,14 @@ main {
     background-color: #ee0979;
 }
 
-/* Styles Specific to profile_page.html */
-#signin-signup {
+/* Styles Specific to signin_page.html, signup_page.html and edit_page.html */
+#signin-signup, #edit-page {
     margin: 130px auto;
     display: flex;
     justify-content: center;
 }
 
-.signin-signup-container {
+.signin-signup-container, .edit-page-container {
     padding: 20px;
     background-color: white;
     border-radius: 20px;
@@ -151,19 +151,19 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.signin-signup-container h1 {
+.signin-signup-container h1, .edit-page-container h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
 }
 
-.signin-signup-container label {
+.signin-signup-container label, .edit-page-container label {
     display: block;
     margin-bottom: 5px;
     font-weight: 500;
 }
 
-.signin-signup-container input {
+.signin-signup-container input, .edit-page-container input {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -172,12 +172,12 @@ main {
     box-sizing: border-box;
 }
 
-.signin-signup-buttons {
+.signin-signup-buttons, .edit-buttons {
     display: flex;
     place-content: center;
 }
 
-.signIn-section {
+.signIn-section, .edit-section {
     margin-bottom: 10px;
     padding: 20px;
     background-color: #f9f9f9;
@@ -186,9 +186,14 @@ main {
     text-align: left;
 }
 
-.signIn-section p, .signUp-section p {
+.signIn-section p, .signUp-section p, .edit-section p {
     text-align: center;
     margin: 0;
+}
+
+.edit-buttons button a {
+    text-decoration: none;
+    color: white;
 }
 
 /* Styles Specific to upload_page.html */
@@ -368,19 +373,28 @@ button:hover {
 }
 
 .profile-box {
+    display: flex;
+    height: 490px;
     max-width: 700px;
     background-color: white;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
-.profile-pic {
-    height: 300px;
+.profile-box h1 {
     display: grid;
     align-content: center;
     justify-content: center;
     width: 700px;
+    height: 70px;
+    border-bottom: 2px solid silver;
+    font-size: xx-large;
+    margin: 0;
 }
 
 .profile-pic img {
@@ -390,15 +404,16 @@ button:hover {
     height: 300px;
 }
 
-.profile-box h2 {
-    font-size: x-large;
+.profile-box h3 {
+    font-size: larger;
     font-weight: 550;
     text-align: center;
+    margin-top: 0;
 }
 
 .profile-box p {
     font-size: medium;
-    font-weight: lighter;
+    font-weight: 400;
     color: gray;
     text-align: left;
 }
@@ -421,54 +436,54 @@ button:hover {
     background-color: #ee0979;
 }
 
-.profile-gallery {
-    padding: 20px;
-    margin: 50px auto;
-    max-width: 1000px;
-    text-align: center;
-}
+/*.profile-gallery {*/
+/*    padding: 20px;*/
+/*    margin: 50px auto;*/
+/*    max-width: 1000px;*/
+/*    text-align: center;*/
+/*}*/
 
-.profile-gallery h2 {
-    font-size: xx-large;
-    padding: 10px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    margin: 0;
-    background-color: white;
-}
+/*.profile-gallery h2 {*/
+/*    font-size: xx-large;*/
+/*    padding: 10px;*/
+/*    border-top-left-radius: 30px;*/
+/*    border-top-right-radius: 30px;*/
+/*    margin: 0;*/
+/*    background-color: white;*/
+/*}*/
 
-.gallery-grid {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 4px;
-    background-color: white;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
+/*.gallery-grid {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    padding: 4px;*/
+/*    background-color: white;*/
+/*    border-bottom-left-radius: 30px;*/
+/*    border-bottom-right-radius: 30px;*/
+/*}*/
 
-.gallery-item {
-    flex: 25%;
-    text-align: center;
-    padding: 7px;
-}
+/*.gallery-item {*/
+/*    flex: 25%;*/
+/*    text-align: center;*/
+/*    padding: 7px;*/
+/*}*/
 
-.gallery-item img {
-    vertical-align: middle;
-    margin-top: 8px;
-    max-width: 480px;
-    border-radius: 20px;
-}
+/*.gallery-item img {*/
+/*    vertical-align: middle;*/
+/*    margin-top: 8px;*/
+/*    max-width: 480px;*/
+/*    border-radius: 20px;*/
+/*}*/
 
-@media screen and (max-width: 800px) {
-  .gallery-grid {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
+/*@media screen and (max-width: 800px) {*/
+/*    .gallery-grid {*/
+/*        flex: 50%;*/
+/*        max-width: 50%;*/
+/*    }*/
+/*}*/
 
-@media screen and (max-width: 600px) {
-  .gallery-item {
-    flex: 100%;
-    max-width: 100%;
-  }
-}
+/*@media screen and (max-width: 600px) {*/
+/*    .gallery-item {*/
+/*        flex: 100%;*/
+/*        max-width: 100%;*/
+/*    }*/
+/*}*/

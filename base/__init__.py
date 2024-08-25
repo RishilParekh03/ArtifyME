@@ -7,7 +7,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
 app = Flask(__name__)
-app.secret_key = 'artifymeappdev'
+app.secret_key = 'artifyme_app_dev'
 
 app.config['SQLALCHEMY_ECHO'] = True
 

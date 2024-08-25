@@ -41,7 +41,6 @@ def converting_image():
 
         if user_field['curr_user_id'] is not None:
             input_file = request.files['inputImage']
-            print(f"User Selected Image: {input_file}\n")  # remove this once done
             if input_file:
                 input_filename = input_file.filename
                 print(f"Filename: {input_filename}\n")

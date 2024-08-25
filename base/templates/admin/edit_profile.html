@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtifyMe - Sign Up</title>
     <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 
@@ -19,9 +20,9 @@
         <a href="/profile/{{ user_field.username }}" class="active">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
                  class="bi-bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
                 <path fill-rule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
             </svg>
         </a>
     {% else %}
@@ -32,35 +33,35 @@
         <a href="/profile" class="active">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="25" fill="currentColor"
                  class="bi-bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path>
                 <path fill-rule="evenodd"
-                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"></path>
             </svg>
         </a>
     {% endif %}
 </nav>
 
-<div id="signin-signup">
-    <div class="signin-signup-container">
+<div id="edit-page">
+    <div class="edit-page-container">
         <h1>Transform Your Photos into Artistic Portraits!</h1>
         <form action="/" method="get">
-            <div class="signUp-section" id="signUp">
+            <div class="edit-section">
                 <div class="form-group">
-                    <label for="signUp-name">Name</label>
-                    <input type="text" id="signUp-name" name="signUp-name" value="{{ user_field.name }}">
+                    <label for="edit-name">Name</label>
+                    <input type="text" id="edit-name" name="edit-name" value="{{ user_field.name }}">
                 </div>
                 <div class="form-group">
-                    <label for="signUp-email">Email</label>
-                    <input type="email" id="signUp-email" name="signUp-email" value="{{ user_field.username }}">
+                    <label for="edit-email">Email</label>
+                    <input type="email" id="edit-email" name="edit-email" value="{{ user_field.username }}">
                 </div>
                 <div class="form-group">
-                    <label for="signUp-password">Password</label>
-                    <input type="password" id="signUp-password" name="signUp-password">
+                    <label for="edit-password">Password</label>
+                    <input type="password" id="edit-password" name="edit-password">
                 </div>
             </div>
-            <div class="signin-signup-buttons">
-                <button type="submit" id="signUpButton">Edit</button>
-                <button><a href="/profile_page">Cancel</a></button>
+            <div class="edit-buttons">
+                <button type="submit">Edit</button>
+                <button><a href="/profile">Cancel</a></button>
             </div>
         </form>
     </div>

@@ -50,3 +50,12 @@ def edit_profile(user_id):
     except Exception as error:
         print("\nError: Unable to load the edit page.\n")
         return render_template("admin/error_page.html", error=error)
+
+
+# @app.route('/delete_profile/<user_id>')
+# def delete_profile(user_id):
+#     try:
+#         user_field = get_sess()
+#         if user_field["curr_user_id"] == int(user_id):
+#             search_profile_vo = LoginVO()
+#             search_profile_dao = LoginDAO()
