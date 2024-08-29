@@ -12,7 +12,7 @@
 
 <body>
 <nav class="navbar">
-    {% if user_field and user_field.username %}
+    {% if user_field.username %}
         <a href="/signout">Sign Out</a>
         <a href="/home/{{ user_field.username }}">Home</a>
         <a href="/upload_image/{{ user_field.username }}">Let's Create!</a>
@@ -44,7 +44,7 @@
 <div id="edit-page">
     <div class="edit-page-container">
         <h1>Transform Your Photos into Artistic Portraits!</h1>
-        <form action="/" method="get">
+        <form action="/profile/edit/{{ user_field.user_id }}" method="post">
             <div class="edit-section">
                 <div class="form-group">
                     <label for="edit-name">Name</label>
@@ -56,11 +56,12 @@
                 </div>
                 <div class="form-group">
                     <label for="edit-password">Password</label>
-                    <input type="password" id="edit-password" name="edit-password">
+                    <input type="password" id="edit-password" name="edit-password"
+                           placeholder="Leave blank to keep current password">
                 </div>
             </div>
             <div class="edit-buttons">
-                <button type="submit">Edit</button>
+                <button type="submit">Save</button>
                 <button><a href="/profile">Cancel</a></button>
             </div>
         </form>

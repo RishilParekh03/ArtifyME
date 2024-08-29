@@ -52,8 +52,24 @@
                 <p style="color: red; font-weight: bold; text-align: center">{{ message[0] }}</p>
             {% endif %}
         {% endwith %}
-        <a href="/edit_profile/{{ user_field.user_id }}" class="edit-btn">Edit Profile</a>
-        <a href="/delete_profile/{{ user_field.user_id }}" class="edit-btn">Delete Profile</a>
+        <a href="/profile/edit/{{ user_field.user_id }}" class="edit-btn">Edit Profile</a>
+        <a href="/delete" id="delete-btn" class="edit-btn">Delete Profile</a>
+    </div>
+</div>
+
+<div id="confirmPopup" class="Popup">
+    <div class="Popup-content">
+        <div class="Popup-header">
+            <h2>Confirm Deletion</h2>
+        </div>
+        <div class="Popup-body">
+            <p>Are you sure you want to delete this profile? This action cannot be undone.</p>
+            <input type="password" id="passwordPopup" placeholder="Enter your password" required>
+        </div>
+        <div class="Popup-footer">
+            <button id="confirmDelete" class="btn-confirm">Yes, Delete</button>
+            <button id="cancelDelete" class="btn-cancel">Cancel</button>
+        </div>
     </div>
 </div>
 
@@ -83,6 +99,42 @@
     <p>&copy; 2024 ArtifyMe. All rights reserved.</p>
 </footer>
 
-</body>
+<script>
+    document.getElementById('delete-btn').addEventListener('click', function (event) {
+        event.preventDefault();
+        document.getElementById('confirmPopup').style.display = 'block';
+    });
 
+    document.getElementById('confirmDelete').addEventListener('click', function () {
+        const password = document.getElementById('passwordPopup').value;
+        if (password) {
+
+            const form_data = document.createElement('form');
+            form_data.action = '/profile/delete/{{ user_field.user_id }}';
+            form_data.method = 'POST';
+
+            const input_field = document.createElement('input');
+            input_field.type = 'hidden';
+            input_field.name = 'verifyPassword';
+            input_field.value = password
+
+            form_data.appendChild(input_field);
+            document.body.appendChild(form_data);
+            form_data.submit();
+        } else {
+            alert("Please enter your password!");
+        }
+    });
+
+    document.getElementById('cancelDelete').addEventListener('click', function () {
+        document.getElementById('confirmPopup').style.display = 'none';
+    });
+
+    window.onclick = function (event) {
+        if (event.target === document.getElementById('confirmPopup')) {
+            document.getElementById('confirmPopup').style.display = 'none';
+        }
+    };
+</script>
+</body>
 </html>

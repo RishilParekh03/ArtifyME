@@ -14,3 +14,12 @@ class LoginDAO:
     def edit_user(self, login_vo):
         search_profile = LoginVO.query.filter_by(user_id=login_vo.user_id).first()
         return search_profile
+
+    def update_user(self, login_vo):
+        db.session.merge(login_vo)
+        db.session.commit()
+
+    def delete_user(self, login_vo):
+        delete_profile = LoginVO.query.get(login_vo.user_id)
+        db.session.delete(delete_profile)
+        db.session.commit()
