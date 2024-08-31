@@ -75,7 +75,7 @@ def converting_image():
                     upload_dao.insert_image(upload_vo)
 
                     processed_image_url = url_for('static', filename=f'output_images/portrait_{input_filename}')
-                    return jsonify({'processed_image': processed_image_url})
+                    return jsonify({'processed_image': processed_image_url, 'message': 'Have a look!!'})
             else:
                 return redirect(url_for('user_upload_image', username=user_field['curr_user']))
         else:

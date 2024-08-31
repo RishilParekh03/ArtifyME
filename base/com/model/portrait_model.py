@@ -26,8 +26,8 @@ class PortraitModel:
 
     def color_palette(self, k):
         data = np.float32(self.img).reshape((-1, 3))
-        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 20, 0.001)
-        ret, label, center = cv2.kmeans(data, k, None, criteria, 10, cv2.KMEANS_RANDOM_CENTERS)
+        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 0.001)
+        ret, label, center = cv2.kmeans(data, k, None, criteria, 4, cv2.KMEANS_RANDOM_CENTERS)
         center = np.uint8(center)
         res = center[label.flatten()]
         res = res.reshape(self.img.shape)
@@ -40,9 +40,9 @@ class PortraitModel:
         return portrait_img
 
     def final_result(self, filename):
-        edge_img = self.edge_mask(line_size=5, blur_val=11)
+        edge_img = self.edge_mask(line_size=9, blur_val=11)
         image = self.color_palette(k=11)
-        blur = cv2.bilateralFilter(image, d=1, sigmaColor=200, sigmaSpace=100)
+        blur = cv2.GaussianBlur(image, (5, 5), 0)
         portrait_img = self.portrait(blur, edge_img)
 
         full_image_path = os.path.join(app.config['OUTPUT_FILES'], f"portrait_{filename}")

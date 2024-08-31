@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const actionButtons = document.getElementById("actionButtons");
     const resultButtons = document.getElementById("resultButtons");
     const downloadButton = document.getElementById("downloadButton");
+    const flashMsg = document.getElementById('flash_msg');
 
     imageUpload.addEventListener("change", function () {
         const file = this.files[0];
@@ -42,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     cartoonImage.onload = function () {
                         imagePreview.innerHTML = "";
                         imagePreview.appendChild(cartoonImage);
+                        flashMsg.innerHTML = data.message;
+                        flashMsg.style.color = 'greenyellow';
                         actionButtons.style.display = "none";
                         resultButtons.style.display = "block";
                         downloadButton.href = data.processed_image;
