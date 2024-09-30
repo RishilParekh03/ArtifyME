@@ -2,7 +2,7 @@ from base import app
 from base.com.controller.login_controller import get_sess
 from base.com.vo.login_vo import LoginVO
 from base.com.dao.login_dao import LoginDAO
-from flask import render_template, request, redirect, url_for, flash, jsonify, session
+from flask import render_template, request, redirect, url_for, flash, session
 import bcrypt
 
 
