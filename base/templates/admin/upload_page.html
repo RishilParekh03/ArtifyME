@@ -51,12 +51,16 @@
         <div class="image-preview" id="imagePreview">
             <p>No image uploaded yet</p>
         </div>
+        <div class="loader-container" id="loaderContainer" style="display: none;">
+            <span class="loader"></span>
+            <p>Hold tight! Your portrait is on the way...</p>
+        </div>
         {% with message = get_flashed_messages() %}
             {% if message %}
                 <p style="color: red; font-weight: bold">{{ message[0] }}</p>
             {% endif %}
         {% endwith %}<br>
-        <p id="flash_msg" style="color: red; font-weight: bold"></p>
+        <p id="flash_msg" style="color: red; font-weight: bold; font-size: large"></p>
         <div class="buttons" id="actionButtons">
             <button id="convertButton" disabled>Transform</button>
             <button id="resetButton">Reset</button>

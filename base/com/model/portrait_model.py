@@ -20,13 +20,14 @@ class PortraitModel:
         gray = cv2.cvtColor(self.img, cv2.COLOR_RGB2GRAY)
         gray_blur = cv2.medianBlur(gray, blur_val)
         edges = cv2.adaptiveThreshold(gray_blur, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
-                                      cv2.THRESH_BINARY, line_size, blur_val)
+                                      cv2.THRESH_BINARY, line_size, 9)
+
         print("Edge Mask Successfully...\n")
         return edges
 
     def color_palette(self, k):
         data = np.float32(self.img).reshape((-1, 3))
-        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 0.001)
+        criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 0.005)
         ret, label, center = cv2.kmeans(data, k, None, criteria, 4, cv2.KMEANS_RANDOM_CENTERS)
         center = np.uint8(center)
         res = center[label.flatten()]
@@ -40,11 +41,14 @@ class PortraitModel:
         return portrait_img
 
     def final_result(self, filename):
-        edge_img = self.edge_mask(line_size=9, blur_val=11)
+        edge_img = self.edge_mask(line_size=7, blur_val=3)
         image = self.color_palette(k=11)
         blur = cv2.GaussianBlur(image, (5, 5), 0)
+
+        # Creating portrait image
         portrait_img = self.portrait(blur, edge_img)
 
+        # Saving the output
         full_image_path = os.path.join(app.config['OUTPUT_FILES'], f"portrait_{filename}")
         image_saved = cv2.imwrite(full_image_path, cv2.cvtColor(portrait_img, cv2.COLOR_RGB2BGR))
         return image_saved, full_image_path
